@@ -61,7 +61,11 @@ export function parseCSV(csvText: string): Promise<ParsedForceData> {
 		// Parse data from the CSV starting after the header
 		const dataCSV = lines.slice(dataStartIndex).join("\n");
 
-		Papa.parse<{ Time: string; Left: string; Right: string }>(dataCSV, {
+		Papa.parse<{
+			Time: string;
+			Left: string;
+			Right: string;
+		}>(dataCSV, {
 			header: true,
 			skipEmptyLines: true,
 			complete: (results) => {
@@ -85,9 +89,7 @@ export function parseCSV(csvText: string): Promise<ParsedForceData> {
 				const activeLeg = detectActiveLeg(data);
 
 				// Extract force data from active leg only
-				const activeForce = data.map((point) =>
-					activeLeg === "left" ? point.left : point.right,
-				);
+				const activeForce = data.map((point) => (activeLeg === "left" ? point.left : point.right));
 
 				resolve({
 					metadata,
@@ -124,17 +126,13 @@ function detectActiveLeg(data: ForceDataPoint[]): ActiveLeg {
 	const rightRange = Math.max(...rightForces) - Math.min(...rightForces);
 
 	// Calculate standard deviation for each leg
-	const leftMean =
-		leftForces.reduce((sum, f) => sum + f, 0) / leftForces.length;
-	const rightMean =
-		rightForces.reduce((sum, f) => sum + f, 0) / rightForces.length;
+	const leftMean = leftForces.reduce((sum, f) => sum + f, 0) / leftForces.length;
+	const rightMean = rightForces.reduce((sum, f) => sum + f, 0) / rightForces.length;
 
 	const leftVariance =
-		leftForces.reduce((sum, f) => sum + (f - leftMean) ** 2, 0) /
-		leftForces.length;
+		leftForces.reduce((sum, f) => sum + (f - leftMean) ** 2, 0) / leftForces.length;
 	const rightVariance =
-		rightForces.reduce((sum, f) => sum + (f - rightMean) ** 2, 0) /
-		rightForces.length;
+		rightForces.reduce((sum, f) => sum + (f - rightMean) ** 2, 0) / rightForces.length;
 
 	const leftStdDev = Math.sqrt(leftVariance);
 	const rightStdDev = Math.sqrt(rightVariance);
@@ -156,10 +154,7 @@ function detectActiveLeg(data: ForceDataPoint[]): ActiveLeg {
  * @param threshold - Target number of points (default: 1000)
  * @returns Downsampled data maintaining visual fidelity
  */
-export function downsampleData(
-	data: ForceDataPoint[],
-	threshold = 1000,
-): ForceDataPoint[] {
+export function downsampleData(data: ForceDataPoint[], threshold = 1000): ForceDataPoint[] {
 	if (data.length <= threshold) {
 		return data; // No downsampling needed
 	}
