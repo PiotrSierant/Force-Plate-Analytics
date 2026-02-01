@@ -1,12 +1,9 @@
-"use client";
-
 import { Construction } from "lucide-react";
 
 export default function CombinedPage() {
 	return (
 		<div className="flex flex-1 flex-col gap-4 p-4 pt-0">
 			<div className="container mx-auto px-4 py-8 max-w-7xl">
-				{/* Header */}
 				<div className="mb-8">
 					<h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-2">
 						Połączone nogi
@@ -16,7 +13,6 @@ export default function CombinedPage() {
 					</p>
 				</div>
 
-				{/* Placeholder */}
 				<div className="flex flex-col items-center justify-center py-16 text-center">
 					<Construction className="h-16 w-16 text-zinc-400 mb-4" />
 					<h2 className="text-xl font-semibold text-zinc-700 dark:text-zinc-300 mb-2">W budowie</h2>
