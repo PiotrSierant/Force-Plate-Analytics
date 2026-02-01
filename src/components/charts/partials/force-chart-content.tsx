@@ -3,6 +3,7 @@ import type { MutableRefObject } from "react";
 import { Line } from "react-chartjs-2";
 import { ChartToolbar } from "@/components/charts/chart-toolbar";
 import { RangeControls } from "@/components/charts/force-chart-range-controls";
+import { OptimizedChartContainer } from "@/components/charts/optimized-chart-container";
 import type { ChartToolbarMode, DatasetLabels } from "@/components/charts/types";
 import { ownerLabelPlugin } from "@/components/charts/utils/owner-label-plugin";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -88,9 +89,11 @@ export function ForceChartContent({
 				/>
 			</CardHeader>
 			<CardContent className="pt-4">
-				<div ref={chartWrapperRef} className="h-150 w-full max-w-full overflow-hidden">
-					<Line ref={chartRef} data={chartData} plugins={[ownerLabelPlugin]} options={options} />
-				</div>
+				<OptimizedChartContainer className="h-150 w-full max-w-full overflow-hidden">
+					<div ref={chartWrapperRef} className="h-full w-full">
+						<Line ref={chartRef} data={chartData} plugins={[ownerLabelPlugin]} options={options} />
+					</div>
+				</OptimizedChartContainer>
 				<div className="mt-6 space-y-4">
 					{trial1?.selectedRange && (
 						<RangeControls

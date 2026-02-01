@@ -13,6 +13,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { ChartToolbar } from "@/components/charts/chart-toolbar";
 import { useRangeSelectorContainer } from "@/components/charts/hooks/use-range-selector-container";
+import { OptimizedChartContainer } from "@/components/charts/optimized-chart-container";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import type { ParsedForceData, SelectedRange } from "@/lib/csvParser";
 
@@ -82,22 +83,24 @@ export function RangeSelector({
 			</CardHeader>
 			<CardContent className="pt-4">
 				<div className="space-y-4">
-					<div ref={chartWrapperRef} className="h-80 w-full max-w-full overflow-hidden">
-						<Line
-							ref={chartRef}
-							data={chartData}
-							options={options}
-							plugins={chartPlugins}
-							style={{
-								cursor,
-							}}
-							redraw={false}
-							onMouseDown={handleMouseDown}
-							onMouseMove={handleMouseMove}
-							onMouseUp={handleMouseUp}
-							onMouseLeave={handleMouseUp}
-						/>
-					</div>
+					<OptimizedChartContainer className="h-80 w-full max-w-full overflow-hidden">
+						<div ref={chartWrapperRef} className="h-full w-full">
+							<Line
+								ref={chartRef}
+								data={chartData}
+								options={options}
+								plugins={chartPlugins}
+								style={{
+									cursor,
+								}}
+								redraw={false}
+								onMouseDown={handleMouseDown}
+								onMouseMove={handleMouseMove}
+								onMouseUp={handleMouseUp}
+								onMouseLeave={handleMouseUp}
+							/>
+						</div>
+					</OptimizedChartContainer>
 				</div>
 			</CardContent>
 		</Card>

@@ -107,6 +107,8 @@ export function useForceChart({
 		() => ({
 			responsive: true,
 			maintainAspectRatio: false,
+			// Debounce resize events - prevents lag during sidebar animation (200ms)
+			resizeDelay: 250,
 			animation: false,
 			normalized: true,
 			parsing: false,

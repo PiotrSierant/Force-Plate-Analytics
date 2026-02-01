@@ -18,7 +18,7 @@ export default function Home() {
 					</h1>
 					<p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
 						Zaawansowana analiza danych z platform dynamometrycznych. Porównuj próby i analizuj
-						wyniki w czasie rzeczywistym.
+						wyniki.
 					</p>
 				</div>
 
@@ -61,33 +61,12 @@ export default function Home() {
 									<ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
 								</h2>
 								<p className="text-zinc-600 dark:text-zinc-400">
-									Analizuj połączone dane z obu platform. Obliczaj całkowitą siłę reakcji podłoża i
-									środek nacisku.
+									Analizuj połączone dane z jednego pliku. Analizuj różnice między
+									próbami i identyfikuj asymetrie. 
 								</p>
 							</div>
 						</div>
 					</Link>
-				</div>
-
-				{/* Quick Start */}
-				<div className="mt-16 text-center">
-					<p className="text-sm text-zinc-500 dark:text-zinc-400 mb-4">
-						Wybierz tryb analizy, aby rozpocząć
-					</p>
-					<div className="flex gap-4 justify-center">
-						<Button asChild>
-							<Link href="/comparison">
-								<GitCompareArrows className="mr-2 h-4 w-4" />
-								Porównanie L/P
-							</Link>
-						</Button>
-						<Button variant="outline" asChild>
-							<Link href="/combined">
-								<Footprints className="mr-2 h-4 w-4" />
-								Połączone nogi
-							</Link>
-						</Button>
-					</div>
 				</div>
 			</div>
 		</div>
