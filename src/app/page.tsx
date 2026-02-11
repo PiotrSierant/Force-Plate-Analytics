@@ -1,6 +1,5 @@
 import { Activity, ArrowRight, Footprints, GitCompareArrows } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
 	return (
@@ -61,8 +60,8 @@ export default function Home() {
 									<ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
 								</h2>
 								<p className="text-zinc-600 dark:text-zinc-400">
-									Analizuj połączone dane z jednego pliku. Analizuj różnice między
-									próbami i identyfikuj asymetrie. 
+									Analizuj połączone dane z jednego pliku. Analizuj różnice między próbami i
+									identyfikuj asymetrie.
 								</p>
 							</div>
 						</div>

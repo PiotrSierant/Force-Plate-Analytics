@@ -30,6 +30,7 @@ export function ChartToolbar({
 	zoomControlsDisabled = false,
 	resetDisabled = false,
 	exportDisabled = false,
+	renderMenu,
 }: ChartToolbarProps) {
 	const { activeMode, handleModeChange } = useChartToolbar({
 		mode,
@@ -61,7 +62,9 @@ export function ChartToolbar({
 						<>
 							<ToolbarDivider />
 							<ExportButtons onExport={onExport} disabled={exportDisabled} />
-							{onOwnerLabelSave && ownerLabel !== undefined ? (
+							{renderMenu ? (
+								renderMenu
+							) : onOwnerLabelSave && ownerLabel !== undefined ? (
 								<OwnerLabelMenu
 									ownerLabel={ownerLabel}
 									onOwnerLabelSave={onOwnerLabelSave}

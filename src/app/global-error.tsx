@@ -1,9 +1,9 @@
 "use client";
 
+import { Home, RotateCcw, TriangleAlert } from "lucide-react";
+import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Home, RotateCcw, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({
@@ -28,11 +28,12 @@ export default function GlobalError({
 	}, [error]);
 
 	return (
-		<html lang="pl" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
-			<body
-				className="bg-background text-foreground antialiased"
-				suppressHydrationWarning
-			>
+		<html
+			lang="pl"
+			className={`${geistSans.variable} ${geistMono.variable}`}
+			suppressHydrationWarning
+		>
+			<body className="bg-background text-foreground antialiased" suppressHydrationWarning>
 				<main className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-linear-to-br from-background via-background to-muted/40 px-6 py-16">
 					<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--border))_0,transparent_60%)] opacity-40" />
 					<section className="relative w-full max-w-2xl">

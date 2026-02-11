@@ -1,3 +1,14 @@
 1) Porównanie prób L | P 
 	- na jednym pliku możliwość wyboru dwóch zakresów
-2) Z jednego pliku dwie nóżki. (vertical force czyli połączenie pomiarów lewej i prawej nogi). 
+
+Page combined:
+Z jednego pliku dwie nogi. 
+(vertical force czyli połączenie pomiarów lewej i prawej nogi). 
+
+Przykładowy plik: dwie nogi na jednej.csv
+
+Strona combined składa się z: 
+- Jednego inputa który wczytuje plik csv. 
+- Render chart z pliku csv.
+
+(następne kroki - po ukończeniu bieżącego zadania).

@@ -13,8 +13,18 @@ export function useChartExport({ filename }: UseChartExportProps) {
 			if (!chart) return;
 
 			try {
-				chart.draw();
-				const base64Image = chart.toBase64Image(
+				const canvas = chart.canvas;
+				const ctx = canvas.getContext("2d");
+				if (!ctx) return;
+
+				// Draw white background behind chart content
+				ctx.save();
+				ctx.globalCompositeOperation = "destination-over";
+				ctx.fillStyle = "#ffffff";
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+				ctx.restore();
+
+				const base64Image = canvas.toDataURL(
 					format === "png" ? "image/png" : "image/jpeg",
 					format === "jpg" ? 0.95 : 1,
 				);
@@ -23,6 +33,9 @@ export function useChartExport({ filename }: UseChartExportProps) {
 				link.href = base64Image;
 				link.download = `${filename}.${format}`;
 				link.click();
+
+				// Redraw chart to restore original transparent background
+				chart.draw();
 			} catch (error) {
 				console.error("Błąd podczas eksportu wykresu:", error);
 			}

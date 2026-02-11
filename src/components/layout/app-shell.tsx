@@ -1,9 +1,9 @@
-import { JSX, Suspense } from "react";
+import { type JSX, Suspense } from "react";
 import { AppSidebar } from "@/components/navigation/app-sidebar";
 import { DynamicBreadcrumbs } from "@/components/navigation/dynamic-breadcrumbs";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type AppShellProps = {
 	children: React.ReactNode;

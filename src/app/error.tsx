@@ -1,11 +1,11 @@
 "use client";
 
+import { Home, RotateCcw, TriangleAlert } from "lucide-react";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Home, RotateCcw, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export default function Error({
+export default function ErrorPage({
 	error,
 	reset,
 }: {

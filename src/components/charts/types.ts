@@ -23,4 +23,5 @@ export interface ChartToolbarProps {
 	zoomControlsDisabled?: boolean;
 	resetDisabled?: boolean;
 	exportDisabled?: boolean;
+	renderMenu?: React.ReactNode;
 }

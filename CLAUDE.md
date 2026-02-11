@@ -12,9 +12,3 @@ Next.js 16 dashboard for analyzing force plate data from dynamometer platforms.
 ## Critical Rules
 
 - UI text is in **Polish** - maintain language consistency
-
-## Guidelines
-
-- [Code Style](.claude/code-style.md) - Biome formatting, naming conventions
-- [Architecture](.claude/architecture.md) - Component structure, file organization
-- [React Patterns](.claude/react-patterns.md) - React 19 / Next.js 16 patterns
